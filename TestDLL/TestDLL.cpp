@@ -11,7 +11,7 @@ __declspec(dllexport) LRESULT CALLBACK FillKeyboard(int nHookCode, WPARAM wParam
 	// neu su kien la nham phim va ma phim la Enter
 	if((nHookCode == HC_ACTION) && (wParam == 13))
 	{
-		MessageBox(0, "haint say hello :D", "HelloHook", 0);
+		MessageBox(0, L"haint say hello :D", L"HelloHook", 0);
 		return 1;
 	}
 
