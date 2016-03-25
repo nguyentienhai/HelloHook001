@@ -4,6 +4,7 @@
 #pragma data_seg("SHARED_DATA")
 HHOOK hGlobalHook = NULL;
 #pragma data_seg()
+int x = 0;
 
 // ham loc su kien nhan phim
 __declspec(dllexport) LRESULT CALLBACK FillKeyboard(int nHookCode, WPARAM wParam, LPARAM lParam)
@@ -11,7 +12,10 @@ __declspec(dllexport) LRESULT CALLBACK FillKeyboard(int nHookCode, WPARAM wParam
 	// neu su kien la nham phim va ma phim la Enter
 	if((nHookCode == HC_ACTION) && (wParam == 13))
 	{
-		MessageBox(0, L"haint say hello :D", L"HelloHook", 0);
+		++x;
+		wchar_t *str1 = new wchar_t[100];
+		wsprintf(str1, L"haint say hello :D %d", x);
+		MessageBox(0, str1, L"HelloHook", 0);
 		return 1;
 	}
 
