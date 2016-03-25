@@ -60,7 +60,7 @@ BOOL InstallHook()
 
 	// lay dia chi ham SetGlobalHookHandle() trong file DLL
 	LOADPROC fPtrFcnt = NULL;
-	fPtrFcnt = (LOADPROC)GetProcAddress(hDLL, "GetGlobalHookHandle");
+	fPtrFcnt = (LOADPROC)GetProcAddress(hDLL, "SetGlobalHookHandle");
 	if (fPtrFcnt == NULL)
 	{
 		MessageBox(0, L"Can't get address of SetGlobalHookHandle function from DLL file!!", L"Error", 0);
