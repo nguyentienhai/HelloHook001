@@ -14,7 +14,7 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	// cai dat hook, exit neu that bai
 	if (InstallHook() == FALSE)
 	{
-		MessageBox(0, "Can not install hook!", "Error", 0);
+		MessageBox(0, L"Can not install hook!", L"Error", 0);
 		return -1;
 	}
 
