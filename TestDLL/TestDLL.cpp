@@ -1,30 +1,26 @@
 #include <Windows.h>
 
-// vung nho dung chung, chua bien handle cuar Hook
+// vung nho dung chung, chua bien handle cua Hook
 #pragma data_seg("SHARED_DATA")
 HHOOK hGlobalHook = NULL;
 #pragma data_seg()
-int x = 0;
 
 // ham loc su kien nhan phim
-__declspec(dllexport) LRESULT CALLBACK FillKeyboard(int nHookCode, WPARAM wParam, LPARAM lParam)
+__declspec(dllexport) LRESULT CALLBACK FillKeyboard(int nCode, WPARAM wParam, LPARAM lParam)
 {
-	// neu su kien la nham phim va ma phim la Enter
-	if((nHookCode == HC_ACTION) && (wParam == 13))
+	// neu su kien la nhan phim va ma phim la Enter
+	if ((nCode == HC_ACTION) && (wParam == 13))
 	{
-		++x;
-		wchar_t *str1 = new wchar_t[100];
-		wsprintf(str1, L"haint say hello :D %d", x);
-		MessageBox(0, str1, L"HelloHook", 0);
+		MessageBox(0, L"nguyen tien hai re-write this one ^^", L"Hello Hook", 0);
 		return 1;
 	}
 
-	// goi Filter Function ke tiep trong chuoi cac Filter Function
-	return CallNextHookEx(hGlobalHook, nHookCode, wParam, lParam);
+	// goi FilterFunction ke tiep trong chuoi cac FilterFunction
+	return CallNextHookEx(hGlobalHook, nCode, wParam, lParam);
 }
 
-// ham an dinh bien hGlobal tai vung nho dung chung
-__declspec(dllexport) void SetGlobalHookHandle(HHOOK handleHook)
+// ham an dinh bien hGlobalHook tai vung nho dung chung
+__declspec(dllexport) void SetGlobalHookHandle(HHOOK hHook)
 {
-	hGlobalHook = handleHook;
+	hGlobalHook = hHook;
 }

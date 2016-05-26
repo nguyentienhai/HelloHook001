@@ -1,7 +1,6 @@
-LIBRARY "TestDLL"
+LIBRARY
 EXPORTS
-	FillKeyboard
-	SetGlobalHookHandle
-	SECTIONS
-
-SHARED_DATA Read Write Shared
+FillKeyboard
+SetGlobalHookHandle
+SECTIONS
+SHARED_DATA read write shared

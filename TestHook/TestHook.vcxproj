@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C3AE06E3-5F02-4612-ABCB-D836EE0941C8}</ProjectGuid>
+    <ProjectGuid>{DAC62296-A6F9-4A3C-9075-BD74768B0C97}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TestHook</RootNamespace>
   </PropertyGroup>
